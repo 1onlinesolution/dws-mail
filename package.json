@@ -1,6 +1,6 @@
 {
   "name": "@1onlinesolution/dws-mail",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Email utilities for the Web",
   "main": "index.js",
   "scripts": {
@@ -18,6 +18,9 @@
   },
   "author": "1onlinesolution",
   "license": "ISC",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "bugs": {
     "url": "https://github.com/1onlinesolution/dws-mail/issues"
   },

@@ -40,11 +40,11 @@ jobs:
         scope: '@1onlinesolution'
     - run: npm ci
     - run: npm run build --if-present
-    #- run: npm test
-    #  env:
-    #    ENCRYPTION_KEY: ${{secrets.ENCRYPTION_KEY}}
-    #    EMAIL_HOST: ${{secrets.EMAIL_HOST}}
-    #    EMAIL_USERNAME: ${{secrets.EMAIL_USERNAME}}
+    - run: npm test
+      env:
+        ENCRYPTION_KEY: ${{secrets.ENCRYPTION_KEY}}
+        EMAIL_HOST: ${{secrets.EMAIL_HOST}}
+        EMAIL_USERNAME: ${{secrets.EMAIL_USERNAME}}
 
 #  publish-gpr:
 #    needs: build
