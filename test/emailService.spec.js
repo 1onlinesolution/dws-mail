@@ -24,7 +24,7 @@ describe('EmailHandler', () => {
     done();
   });
 
-  it('sendMail sends email', (done) => {
+  it('sendEmail sends email', (done) => {
     const emailService = new EmailService({
       ...emailConfig,
       tls: {
@@ -35,6 +35,22 @@ describe('EmailHandler', () => {
 
     emailService
       .sendEmail(message)
+      .then((result) => {
+        const { accepted, rejected, response } = result;
+        assert(rejected.length === 0);
+        assert(accepted.length === 1);
+        assert(accepted[0] === message.to);
+        assert(response.includes('250 2.0.0 Ok: queued as'));
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
+
+  it('sendMail sends email', (done) => {
+    EmailService
+      .send({message})
       .then((result) => {
         const { accepted, rejected, response } = result;
         assert(rejected.length === 0);

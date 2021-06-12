@@ -1,6 +1,6 @@
 {
   "name": "@1onlinesolution/dws-mail",
-  "version": "0.0.8",
+  "version": "0.0.10",
   "description": "Email utilities for the Web",
   "main": "index.js",
   "scripts": {
