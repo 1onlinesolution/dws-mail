@@ -47,12 +47,14 @@ jobs:
         envkey_EMAIL_HOST: ${{secrets.EMAIL_HOST}}
         envkey_EMAIL_USERNAME: ${{secrets.EMAIL_USERNAME}}
         envkey_EMAIL_PASSWORD: ${{secrets.EMAIL_PASSWORD}}
+        envkey_EMAIL_USERNAME2: ${{secrets.EMAIL_USERNAME2}}
 
     - run: npm test
       env:
         ENCRYPTION_KEY: ${{secrets.ENCRYPTION_KEY}}
         EMAIL_HOST: ${{secrets.EMAIL_HOST}}
         EMAIL_USERNAME: ${{secrets.EMAIL_USERNAME}}
+        EMAIL_USERNAME2: ${{secrets.EMAIL_USERNAME2}}
 
 #  publish-gpr:
 #    needs: build
