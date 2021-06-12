@@ -16,11 +16,10 @@ describe('EmailHandler', () => {
     }, /configuration cannot be undefined or null/);
     // or this (see passwordService.spec.js for async/await example):
     try {
-        new EmailService();
-    }
-    catch(err){
-        assert(err.name === 'SmtpConfigurationError');
-        assert(err.message === 'SMTP configuration cannot be undefined or null');
+      new EmailService();
+    } catch (err) {
+      assert(err.name === 'SmtpConfigurationError');
+      assert(err.message === 'SMTP configuration cannot be undefined or null');
     }
     done();
   });
@@ -37,7 +36,11 @@ describe('EmailHandler', () => {
     emailService
       .sendEmail(message)
       .then((result) => {
-        assert(result.ok === 1);
+        const { accepted, rejected, response } = result;
+        assert(rejected.length === 0);
+        assert(accepted.length === 1);
+        assert(accepted[0] === message.to);
+        assert(response.includes('250 2.0.0 Ok: queued as'));
         done();
       })
       .catch((err) => {
