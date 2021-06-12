@@ -31,7 +31,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
@@ -41,14 +40,12 @@ jobs:
         scope: '@1onlinesolution'
     - run: npm ci
     - run: npm run build --if-present
-
     - name: Create .env file
       uses: SpicyPizza/create-envfile@v1
       with:
         envkey_EMAIL_HOST: ${{secrets.EMAIL_HOST}}
         envkey_EMAIL_USERNAME: ${{secrets.EMAIL_USERNAME}}
         envkey_EMAIL_PASSWORD: ${{secrets.EMAIL_PASSWORD}}
-
     - name: Run tests
     - run: npm test
       env:
