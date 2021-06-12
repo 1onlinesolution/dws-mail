@@ -48,7 +48,7 @@ jobs:
         envkey_EMAIL_USERNAME: ${{secrets.EMAIL_USERNAME}}
         envkey_EMAIL_PASSWORD: ${{secrets.EMAIL_PASSWORD}}
 
-    - name: Run tests
+#    - name: Run tests
     - run: npm test
       env:
         ENCRYPTION_KEY: ${{secrets.ENCRYPTION_KEY}}
