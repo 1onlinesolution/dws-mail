@@ -1,6 +1,6 @@
 {
   "name": "@1onlinesolution/dws-mail",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Email utilities for the Web",
   "main": "index.js",
   "scripts": {
@@ -30,7 +30,8 @@
     "eslint": "^7.28.0",
     "eslint-plugin-security": "^1.4.0",
     "mocha": "^8.4.0",
-    "prettier": "^2.3.0"
+    "prettier": "^2.3.0",
+    "sinon": "^11.1.1"
   },
   "dependencies": {
     "nodemailer": "^6.6.1"
