@@ -3,7 +3,7 @@ const sinon = require('sinon');
 const EmailService = require('../lib/emailService');
 const emailConfig = require('../lib/defaultEmailConfig')({});
 
-describe('Ctor', function () {
+describe('*** Unit tests *** Ctor', function () {
   it('throws if not provided with a configuration', function (done) {
     assert.throws(() => {
       new EmailService();
@@ -19,7 +19,7 @@ describe('Ctor', function () {
   });
 });
 
-describe('EmailHandler', function () {
+describe('*** Unit tests *** EmailHandler', function () {
   let sandbox = null;
 
   beforeEach(function () {

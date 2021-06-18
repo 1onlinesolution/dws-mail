@@ -1,24 +1,16 @@
-/*
 const assert = require('assert');
 const EmailService = require('../lib/emailService');
 const emailConfig = require('../lib/defaultEmailConfig')({});
 
-describe('EmailHandler', () => {
-  it('Ctor throws if not provided with a configuration', function (done) {
-    assert.throws(() => {
-      new EmailService();
-    }, /configuration cannot be undefined or null/);
-    // or this (see passwordService.spec.js for async/await example):
-    try {
-      new EmailService();
-    } catch (err) {
-      assert(err.name === 'SmtpConfigurationError');
-      assert(err.message === 'SMTP configuration cannot be undefined or null');
-    }
-    done();
-  });
+const isIntegrationTest = process.env.NODE_ENV === 'test_integration';
 
+describe('*** Integration tests *** EmailHandler', () => {
   it('sendEmail sends one email', function (done) {
+    if (!isIntegrationTest) {
+      this.skip();
+      return;
+    }
+
     const message = {
       from: process.env.EMAIL_USERNAME,
       to: process.env.EMAIL_USERNAME,
@@ -50,6 +42,11 @@ describe('EmailHandler', () => {
   });
 
   it('send sends one email', function (done) {
+    if (!isIntegrationTest) {
+      this.skip();
+      return;
+    }
+
     const message = {
       from: process.env.EMAIL_USERNAME,
       to: process.env.EMAIL_USERNAME,
@@ -71,6 +68,11 @@ describe('EmailHandler', () => {
   });
 
   it('send sends multiple emails', function (done) {
+    if (!isIntegrationTest) {
+      this.skip();
+      return;
+    }
+
     const message = {
       from: process.env.EMAIL_USERNAME,
       to: `${process.env.EMAIL_USERNAME},${process.env.EMAIL_USERNAME2}`,
@@ -94,6 +96,11 @@ describe('EmailHandler', () => {
   });
 
   it('send sends multiple emails through cc', function (done) {
+    if (!isIntegrationTest) {
+      this.skip();
+      return;
+    }
+
     const message = {
       from: process.env.EMAIL_USERNAME,
       to: process.env.EMAIL_USERNAME,
@@ -117,6 +124,11 @@ describe('EmailHandler', () => {
   });
 
   it('send sends multiple emails through bcc', function (done) {
+    if (!isIntegrationTest) {
+      this.skip();
+      return;
+    }
+
     const message = {
       from: process.env.EMAIL_USERNAME,
       to: process.env.EMAIL_USERNAME,
@@ -139,4 +151,4 @@ describe('EmailHandler', () => {
       });
   });
 });
-*/
+

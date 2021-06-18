@@ -1,6 +1,6 @@
 {
   "name": "@1onlinesolution/dws-mail",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Email utilities for the Web",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,7 @@
     "major": "npm version major",
     "lint": "eslint *.js lib/**/*.js",
     "test": "NODE_ENV=test mocha",
+    "test:integration": "NODE_ENV=test_integration mocha",
     "coverage": "nyc --reporter=lcov --reporter=text --report-dir=./coverage --temp-dir=/Users/ioannis/tmp/.nyc_output npm run test",
     "coverage-clean": "rm -rf ./coverage & rm -rf ./.nyc_output"
   },
@@ -34,6 +35,7 @@
     "sinon": "^11.1.1"
   },
   "dependencies": {
+    "@1onlinesolution/dws-utils": "^0.1.0",
     "nodemailer": "^6.6.1"
   },
   "mocha": {
